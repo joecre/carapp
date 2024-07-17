@@ -9,6 +9,7 @@ df = pd.read_csv('vehicles_us.csv')
 # Title and description
 st.title('Original Data on Used Cars')
 st.write('Here, we look into a dataset of advertisements for used cars.')
+#create age categorires and column
 df['age'] = 2024 - df['model_year']
 def age_category(x):
     if x<5: return '5-10'
@@ -16,10 +17,13 @@ def age_category(x):
     elif x>=10 and x<20: return '10-20'
     else: return '>20'
 df['age_category'] = df['age'].apply(age_category)
-
+#create a checkbox to show new cars
 show_new_cars = st.checkbox('Include new cars from dealers') 
 if not show_new_cars:
     df = df[df.condition!='new']
+
+# Fill missing values with 0 and convert to boolean
+df['is_4wd'] = df['is_4wd'].fillna(0).astype(bool)
 
 # Extract the manufacturer from the 'model' column
 df['manufacturer'] = df['model'].str.split().str[0]
@@ -82,7 +86,3 @@ fig.update_layout(
 
 # Show the plot
 st.plotly_chart(fig)
-
-
-
-
