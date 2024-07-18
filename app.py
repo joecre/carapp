@@ -5,7 +5,10 @@ import plotly.express as px
 
 # Load the dataset
 df = pd.read_csv('vehicles_us.csv')
-
+# create a text header above the dataframe
+st.header('Data viewer') 
+# display the dataframe with streamlit
+st.dataframe(df)
 # Title and description
 st.title('Original Data on Used Cars')
 st.write('Here, we look into a dataset of advertisements for used cars.')
