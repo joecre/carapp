@@ -11,14 +11,15 @@ st.header('Data viewer')
 st.dataframe(df)
 # Title and description
 st.title('Original Data on Used Cars')
-st.write('Here, we look into a dataset of advertisements for used cars.')
-#create age categorires and column
+
+#create age categorires
 df['age'] = 2024 - df['model_year']
 def age_category(x):
     if x<5: return '5-10'
     elif x>=5 and x<10: return '5-10'
     elif x>=10 and x<20: return '10-20'
     else: return '>20'
+# age cat. column
 df['age_category'] = df['age'].apply(age_category)
 #create a checkbox to show new cars
 show_new_cars = st.checkbox('Include new cars from dealers') 
@@ -49,6 +50,8 @@ st.header('Price analysis')
 st.write("""
 ###### Let's analyze what influences price the most. We will check how distibution of price varies depending on  transmission, body type, and age
 """)
+#convert price data type to numeric
+df['price'] = pd.to_numeric(df['price'], errors='coerce').fillna(0).astype(int)
 
 #histogram of price by different parameters
 #Distribution of price depending on color, transmission,engine_type,body_type, state
