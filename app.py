@@ -50,7 +50,7 @@ st.write("""
 ###### Let's analyze what influences price the most. We will check how distibution of price varies depending on  transmission, body type, and age
 """)
 #convert price data type to numeric
-df['price'] = pd.to_numeric(df['price'], errors='coerce')
+df['price'] = df['price'].asType('float')
 
 #histogram of price by different parameters
 #Distribution of price depending on color, transmission,engine_type,body_type, state
