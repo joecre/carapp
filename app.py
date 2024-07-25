@@ -42,21 +42,25 @@ year_range = st.slider("Choose years", value=(1960, 2024), min_value = min_year,
 actual_range = list(range(year_range[0], year_range[1]+1))
 
 df_filtered = df[(df.manufacturer == selected_manufacturer) & (df.model_year.isin(list(actual_range)))]
+
 #showing the final table in streamlit
-df_filtered
+st.table(df_filtered)
+
+
 #------------------------------------------------
 st.header('Price analysis')
 st.write("""
-###### Let's analyze what influences price the most. We will check how distibution of price varies depending on  transmission, body type, and age
+# Let's analyze what influences price the most. We will check how distibution of price varies
+# depending ontransmission, body type, color, condition and age.
 """)
-#convert price data type to numeric
+# convert price data type to numeric
 df['price'] = df['price'].asType('float')
 
-#histogram of price by different parameters
-#Distribution of price depending on color, transmission,engine_type,body_type, state
-list_for_hist=['transmission','type','age']
+# histogram of price by different parameters
+# Distribution of price depending on condition, transmission, body_type, age and color
+list_for_hist=['condition', 'transmission', 'type', 'age', 'paint_color']
 choice_for_hist = st.selectbox('Split for price distribution', list_for_hist)
-fig1 = px.histogram(df, x="price", color=choice_for_hist)
+fig1 = px.histogram(df, x='price', color=choice_for_hist)
 
 fig1.update_layout(
 title="<b> Split of price by {}</b>".format(choice_for_hist))
