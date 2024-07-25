@@ -18,7 +18,7 @@ def age_category(x):
         return '0-5'
     elif 5 < x <= 10:
         return '6-10'
-    elif x > 10 and x <= 20:
+    elif 10 < x <= 20:
         return '11-20'
     else:
         return '>20'
