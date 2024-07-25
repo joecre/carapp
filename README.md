@@ -11,16 +11,16 @@ and plotly.*
 
 ## Local development
 1. Create a virtual environment to run your app with the required python version
-   - `pipenv --python 3.11.9`
+   ```
+    pipenv --python 3.11.9
+   ```
 2. Install dependencies
-   - `pipenv install`
-3. To use the newly created virtual environment
    ```
-   pipenv shell
-   ```
-
-    **OR** *to simply run the app*
-
-   ```
-   pipenv run streamlit run app.py
+    pipenv install
     ```
+3. Run application
+   ```
+   pipenv run app
+    ```
+   
+
