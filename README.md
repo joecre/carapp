@@ -1,36 +1,32 @@
-# [Carapp](https://carapp-l2d7.onrender.com) by Joseph Crea
+# Used Car Value Estimator
 
-*This application explores different variables in the vehicles_us dataset.
-It is a tool to analyze the car data by varied data points. It uses pandas, streamlit, 
-and plotly.* 
+[Launch the App on Render](https://carapp-l2d7.onrender.com)
 
-#### *This app can be utilized via the hyperlink above or you can paste the url below in your browser:*
-```commandline
-https://carapp-l2d7.onrender.com
-```
-## Requirements
-### Before you get started ensure you have these:
-- [Pyenv](https://github.com/pyenv/pyenv)
-  - specifically python version 3.11.9
-    - to install via pyenv `pyenv install 3.11.9`
+This Streamlit web app predicts the market value of used cars based on user input. It allows interactive exploration of the `vehicles_us` dataset through dropdown filters, histograms, and scatterplots.
+
+The project uses:
+- Streamlit for the user interface
+- Plotly for interactive visualizations
+- A trained regression model to estimate price based on mileage, year, and other features
+
+---
+
+## Getting Started Locally
+
+To run this app on your machine, you’ll need:
+
+### Requirements
+- Python 3.11.9 (recommended via [pyenv](https://github.com/pyenv/pyenv))
 - [Pipenv](https://github.com/pypa/pipenv)
-### Project Requirements
-- [Plotly](https://pypi.org/project/plotly/)
-- [Streamlit](https://pypi.org/project/streamlit/)
-- [Pandas](https://pypi.org/project/pandas/)
 
-## Local development
-1. Create a virtual environment to run your app with the required python version
-   ```
-    pipenv --python 3.11.9
-   ```
-2. Install dependencies
-   ```
-    pipenv install
-    ```
-3. Run application
-   ```
-   pipenv run app
-    ```
-   
+### Setup Instructions
 
+```bash
+# Create a virtual environment
+pipenv --python 3.11.9
+
+# Install project dependencies
+pipenv install
+
+# Launch the app
+pipenv run streamlit run app.py
